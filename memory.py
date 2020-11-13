@@ -275,7 +275,7 @@ def find_tile_spacing(tiles_per_row, tiles_per_column, space_between, screen):
 # this method creates a surface containing a number indicating the amount of seconds since the game started
 def clock_render():
     # Text settings
-    font_size = 30
+    font_size = 60
     font = pygame.font.SysFont("arial", font_size)
     color = pygame.Color("white")
 
