@@ -39,6 +39,8 @@ class Game:
         self.close_clicked = False
         self.continue_game = True
 
+        self.deck = Deck(4, 4, 10, self.surface)
+
     def play(self):
         # Play the game until the player presses the close box.
         # - self is the Game that should be continued or not.
@@ -61,6 +63,7 @@ class Game:
 
     def draw(self):
         # Draw all game objects.
+        self.deck.draw()
         # - self is the Game to draw
         self.surface.fill(self.bg_color)  # clear the display surface first
         pygame.display.update()  # make the updated surface appear on the display
@@ -71,10 +74,37 @@ class Game:
         pass
 
 
+class Deck:
+
+    def __init__(self, cards_per_row, cards_per_column, space_between, screen):
+        dimensions = list(screen.get_size())
+        dimensions[0] = dimensions[0] - 100  # this allows space for score on right
+        self.card_spacing_x = dimensions[0] // cards_per_row
+        self.card_spacing_y = dimensions[1] // cards_per_column
+        self.card_size_x = self.card_spacing_x - space_between
+        self.card_size_y = self.card_spacing_y - space_between
+        self.deck = []
+        self.screen = self.screen
+        for x in range(cards_per_row):
+            for y in range(cards_per_column):
+                card_dimension = [self.card_size_x, self.card_size_y]
+                card_location = [space_between + self.card_spacing_x * x, space_between + self.card_spacing_y * y]
+                self.deck.append(Card(card_dimension, card_location, None, screen))
+
+    def draw(self):
+        for card in self.deck:
+            card.draw()
+
+
 class Card:
 
-    def __init__(self):
-        pass
+    def __init__(self, dimensions, location, image, screen):
+        self.rect = pygame.Rect(location, dimensions)
+        self.color = pygame.Color('white')
+        self.screen = screen
+
+    def draw(self):
+        pygame.draw.rect(self.screen, self.color, self.rect)
 
 
 main()
