@@ -84,7 +84,7 @@ class Deck:
         self.card_size_x = self.card_spacing_x - space_between
         self.card_size_y = self.card_spacing_y - space_between
         self.deck = []
-        self.screen = self.screen
+        self.screen = screen
         for x in range(cards_per_row):
             for y in range(cards_per_column):
                 card_dimension = [self.card_size_x, self.card_size_y]
