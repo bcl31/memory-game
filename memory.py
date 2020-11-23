@@ -204,6 +204,7 @@ class Tile:
 
     # this method is responsible for drawing the tile to the screen
     def draw(self):
+
         # if the tile is hidden (face-down) set the image to the backside, otherwise set the image to the front side
         if self.hidden:
             image = self.back
