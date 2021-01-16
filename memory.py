@@ -1,4 +1,4 @@
-# this program is a simple matching game, in the top left a timer increases until all tiles have been matched.
+# this program is a simple matching game. In the top left a timer increases until all tiles have been matched.
 # if an incorrect match was made, the game will freeze for a one second penalty before hiding the tiles again
 # tiles are selected by clicking on them, at which point they will be revealed
 
